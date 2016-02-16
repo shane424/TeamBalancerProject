@@ -332,9 +332,11 @@ void builder::assignUnits(){
 					isDone = true;
 					break;
 				}
+				double theRealTHING = ((totalAttack/totalDefence)*numOfTeams);
+				cout << "THE REAL THING: " << theRealTHING << endl;
 				//double theDifference = averageTeamTotal - curTeamTotal;
 				//cout << "DIFFERENCE: " << theDifference << endl;
-				if(theDifference == 0 || (theDifference >= 0 && theDifference <= 4) || (theDifference <= 0 && theDifference >= -4)){
+				if(theDifference == 0 || (theDifference >= 0 && theDifference <= 3) || (theDifference <= 0 && theDifference >= -3)){
 					cout << " BROKE OUT OF THE CAGE " << endl;
 					isDone = true;
 					break;
