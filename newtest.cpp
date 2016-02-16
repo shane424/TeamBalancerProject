@@ -218,7 +218,9 @@ void builder::assignUnits(){
 		curTotalDifference = 0;
 		isDone = false;
 		cout << "beginning of outer loop" << endl;
-		while(unitList.size() > 0){
+		while(!isDone){
+			cout << "in While Loop" << endl;
+		if(unitList.size() > 0){
 			cout << "While loop for the " << o << "th time" << endl;
 			for(int i = 0; i < totalNumberOfUnits; i++){
 				cout << "In For Loop. # of Units: " << totalNumberOfUnits << endl;
@@ -310,23 +312,29 @@ void builder::assignUnits(){
 					cout << unitList[m].id;
 				}
 				cout << endl;
+				double theDifference = averageTeamTotal - curTeamTotal;
+				cout << "Avg Team Atk: " << averageTeamAttack << " | Avg Team Defence: " << averageTeamDefence << endl;
+				cout << "Avg Team total: " << averageTeamTotal << endl;
+				cout << "DIFFERENCE: " << theDifference << endl;
 				totalNumberOfUnits--;
 				if(unitList.size() == 1){
 					cout << "size is 1" << endl;
 					cout << position << endl;
+					totalNumberOfUnits--;
 					unitList[i].team = o;
 					cout << i << " " << unitList[i].id << " " << unitList[i].team << endl;
-					cout << "PUSHED BACK THE LAST ONE" << unitList[position].team << endl;
-					endList.push_back(unitList[position]);
+					cout << "unitPos: " << position << " ID: " << unitList[position].id << endl;
+					cout << "PUSHED BACK THE LAST ONE " << unitList[position].team << " " << unitList[i].team << endl;
+					endList.push_back(unitList[i]);
 					cout << "after end" << endl;
 					unitList.erase(unitList.begin());
 					cout << "Before isDone" << endl;
 					isDone = true;
 					break;
 				}
-				double theDifference = averageTeamTotal - curTeamTotal;
-				cout << "DIFFERENCE: " << theDifference << endl;
-				if(theDifference == 0 || (theDifference >= 0 && theDifference <= 2) || (theDifference <= 0 && theDifference >= -2)){
+				//double theDifference = averageTeamTotal - curTeamTotal;
+				//cout << "DIFFERENCE: " << theDifference << endl;
+				if(theDifference == 0 || (theDifference >= 0 && theDifference <= 4) || (theDifference <= 0 && theDifference >= -4)){
 					cout << " BROKE OUT OF THE CAGE " << endl;
 					isDone = true;
 					break;
@@ -334,9 +342,12 @@ void builder::assignUnits(){
 				cout << endl;
 				cout << "end of function" << endl;
 				break;
-				//isDone = true;
+				isDone = true;
 				//totalNumberOfUnits--;
 			}
+		}
+		else
+			break;
 		}
 	}
 }
