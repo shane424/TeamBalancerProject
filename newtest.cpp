@@ -336,7 +336,7 @@ void builder::assignUnits(){
 				cout << "THE REAL THING: " << theRealTHING << endl;
 				//double theDifference = averageTeamTotal - curTeamTotal;
 				//cout << "DIFFERENCE: " << theDifference << endl;
-				if(theDifference == 0 || (theDifference >= 0 && theDifference <= 3) || (theDifference <= 0 && theDifference >= -3)){
+				if(theDifference == 0 || (theDifference >= 0 && theDifference <= 3) || (theDifference <= 0/*  0 && theDifference >= -3 */)){
 					cout << " BROKE OUT OF THE CAGE " << endl;
 					isDone = true;
 					break;
